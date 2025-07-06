@@ -52,10 +52,43 @@ pip install -r requirements.txt
 
 ### 6. Run the Application
 ```bash
+# Run the modular version (recommended)
+streamlit run app_modular.py
+
+# Or run the original version
 streamlit run app.py
 ```
 
 The app will open in your browser at `http://localhost:8501`
+
+## Project Structure
+
+The project is now organized in a modular structure for better maintainability:
+
+```
+RAG/
+├── app_modular.py              # Main modular application (recommended)
+├── app.py                      # Original monolithic version
+├── requirements.txt            # Dependencies
+├── .env                       # Environment variables
+├── PROJECT_STRUCTURE.md       # Detailed structure documentation
+└── src/                       # Source code
+    ├── config.py              # Configuration management
+    ├── core/                  # Core business logic
+    │   ├── rag_system.py     # Main RAG system
+    │   ├── llm.py            # LLM wrapper
+    │   └── document_processor.py # Document processing
+    ├── components/            # UI components
+    │   ├── sidebar.py        # Sidebar interface
+    │   ├── web_scraping_tab.py
+    │   ├── pdf_upload_tab.py
+    │   ├── chat_tab.py
+    │   └── help_tab.py
+    └── utils/                 # Utility functions
+        └── ui_helpers.py     # UI helpers
+```
+
+For detailed information about the project structure, see [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md).
 
 ## Usage
 
@@ -79,13 +112,20 @@ The app will open in your browser at `http://localhost:8501`
 
 ```
 RAG/
-├── app.py                 # Main Streamlit application
-├── requirements.txt       # Python dependencies
-├── .env                   # Environment variables (not in git)
-├── .env.example          # Template for environment variables
-├── .gitignore            # Files to ignore in git
-├── README.md             # This file
-└── chroma_db/            # Vector database (created automatically)
+├── app_modular.py              # Main modular application (recommended)
+├── app.py                      # Original monolithic version  
+├── requirements.txt            # Python dependencies
+├── .env                       # Environment variables (not in git)
+├── .env.example              # Template for environment variables
+├── .gitignore                # Files to ignore in git
+├── README.md                 # This file
+├── PROJECT_STRUCTURE.md      # Detailed structure documentation
+├── chroma_db/                # Vector database (created automatically)
+└── src/                      # Modular source code
+    ├── config.py             # Configuration management
+    ├── core/                 # Core business logic
+    ├── components/           # UI components  
+    └── utils/                # Utility functions
 ```
 
 ## Security Notes
